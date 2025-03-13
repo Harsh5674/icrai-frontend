@@ -135,11 +135,11 @@ const Auth0ProviderWithNavigate = ({ children }) => {
 
   console.log(redirectUri);
 
-  const onRedirectCallback = (appState) => {
+  // const onRedirectCallback = (appState) => {
     // navigate(appState?.returnTo || "/auth-callback");
-    navigate(appState?.returnTo);
+    // navigate(appState?.returnTo);
     // Handle navigation here if needed
-  };
+  // };
 
   return (
     <Auth0Provider
@@ -149,7 +149,7 @@ const Auth0ProviderWithNavigate = ({ children }) => {
         redirect_uri: redirectUri,
         audience,
       }}
-      onRedirectCallback={onRedirectCallback}
+{/*       onRedirectCallback={onRedirectCallback} */}
     >
       <AuthWrapper createUser={createUser}>
         {children}
