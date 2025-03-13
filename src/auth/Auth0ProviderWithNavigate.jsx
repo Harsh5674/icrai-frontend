@@ -119,7 +119,7 @@
 import React, { useEffect } from 'react';
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 import { useCreateMyUser } from '../api/MyUserApi';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const Auth0ProviderWithNavigate = ({ children }) => {
   const { createUser } = useCreateMyUser();
@@ -127,7 +127,7 @@ const Auth0ProviderWithNavigate = ({ children }) => {
   const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
   const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL;
   const audience = import.meta.env.VITE_AUTH0_AUDIENCE 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   if (!domain || !clientId || !redirectUri || !audience) {
     throw new Error('Unable to initialize Auth0');
@@ -137,7 +137,7 @@ const Auth0ProviderWithNavigate = ({ children }) => {
 
   const onRedirectCallback = (appState) => {
     // navigate(appState?.returnTo || "/auth-callback");
-    navigate(appState?.returnTo);
+    // navigate(appState?.returnTo);
     console.log(appState);
     console.log(window.location.origin);
     // Handle navigation here if needed
